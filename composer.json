@@ -1,5 +1,5 @@
 {
-    "name": "lakion/sylius-elastic-search-bundle",
+    "name": "estandarte/sylius-elastic-search-bundle",
     "type": "sylius-bundle",
     "description": "Elastic search integration for Sylius.",
     "license": "MIT",
