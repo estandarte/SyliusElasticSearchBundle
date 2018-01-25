@@ -20,7 +20,7 @@ fos_elastica:
                         id: { type: integer}
                         code: { type: text, analyzer: sylius_code_analyzer }
                         name: { type: text }
-                        raw_name: { type: text, index: not_analyzed, property_path: name }
+                        raw_name: { type: keyword, property_path: name }
                         description: { type: text }
                         shortDescription: { type: text }
                         slug: { type: text }
