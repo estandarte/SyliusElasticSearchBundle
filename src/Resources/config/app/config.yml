@@ -2,7 +2,7 @@ fos_elastica:
     clients:
         default:
             host: 127.0.0.1
-            port: 9200 
+            port: 9200
     indexes:
         sylius:
             client: default
@@ -18,65 +18,65 @@ fos_elastica:
                 product:
                     properties:
                         id: { type: integer}
-                        code: { type: string, analyzer: sylius_code_analyzer }
-                        name: { type: string }
-                        raw_name: { type: string, index: not_analyzed, property_path: name }
-                        description: { type: string }
-                        shortDescription: { type: string }
-                        slug: { type: string }
+                        code: { type: text, analyzer: sylius_code_analyzer }
+                        name: { type: text }
+                        raw_name: { type: text, index: not_analyzed, property_path: name }
+                        description: { type: text }
+                        shortDescription: { type: text }
+                        slug: { type: text }
                         translations:
                             type: "nested"
                             properties:
-                                locale: { type: string }
-                                name: { type: string }
-                                metaKeywords: { type: string }
-                                metaDescription: { type: string }
+                                locale: { type: text }
+                                name: { type: text }
+                                metaKeywords: { type: text }
+                                metaDescription: { type: text }
                         variants:
                             type: "nested"
                             properties:
-                                code: { type: string }
-                                name: { type: string }
+                                code: { type: text }
+                                name: { type: text }
                                 onHand: { type: integer }
                                 onHold: { type: integer }
                                 channelPricings:
                                     type: "nested"
                                     properties:
                                         price: { type: integer }
-                                        channelCode: { type: string }
+                                        channelCode: { type: text }
                                 optionValues:
                                     type: "nested"
                                     properties:
-                                        name: { type: string }
-                                        value: { type: string }
-                                        code: { type: string }
+                                        name: { type: text }
+                                        value: { type: text }
+                                        code: { type: text }
                         attributes:
                             type: "nested"
                             properties:
-                                value: { type: string }
+                                value: { type: text }
                         channels:
                             type: "nested"
                             properties:
-                                code: { type: string, analyzer: sylius_code_analyzer }
+                                code: { type: text, analyzer: sylius_code_analyzer }
                         productTaxons:
                             type: "nested"
                             properties:
                                 taxon:
                                     type: "object"
                                     properties:
-                                        code: { type: string }
-                                        name: { type: string }
+                                        code: { type: text }
+                                        name: { type: text }
                                 position: { type: integer }
                         mainTaxon:
                             type: "object"
                             properties:
-                                slug: { type: string }
-                                code: { type: string }
-                                name: { type: string }
+                                slug: { type: text }
+                                code: { type: text }
+                                name: { type: text }
                         images:
                             type: "nested"
                             properties:
-                                path: { type: string }
-                                type: { type: string }
+                                path: { type: text }
+                                type: { type: text }
                         enabled: { type: boolean }
                         isSimple: { type: boolean }
                     persistence:
